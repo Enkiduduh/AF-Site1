@@ -1,11 +1,10 @@
-import Header from "../header/Header"
 
 function View() {
   return (
-    <div>
-      <div>test1</div>
-      <Header />
+    <div className="view-container">
+
       <div>test2</div>
+
     </div>
   )
 }

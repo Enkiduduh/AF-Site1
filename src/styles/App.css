@@ -1,11 +1,76 @@
-.test {
-  height: 20px;
-  background: green;
+.header-container {
+  height: 80px;
+  background: rgb(14, 138, 14);
+  background: rgb(14, 138, 14);
   border: 1px solid white;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.test {
-  height: 20px;
+.logo {
+  width: 180px;
+  height: 60px;
+  background: yellow;
+  margin: 10px;
+}
+.logo img {
+  width: 180px;
+  height: 60px;
+}
+
+.account, .cart, .position, .mode {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchbar-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 20px;
+  width: 350px;
+}
+
+.input-searchbar {
+  border: none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  height: 40px;
+  width: 310px;
+  padding-left: 10px;
+}
+
+.icon-search {
+  margin: 0 auto;
+}
+
+.footer-container {
+  height: 60px;
   background: green;
   border: 1px solid white;
+  text-align: center;
+}
+
+.view-container {
+  flex: 1;
+  padding: 20px;
+  background-color: blue;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
 }/*# sourceMappingURL=App.css.map */
