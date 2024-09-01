@@ -58,13 +58,65 @@
   background-color: blue;
 }
 
+.form-container {
+  width: 550px;
+  margin: 50px auto;
+  border: 1px solid white;
+}
+
+.formCreate {
+  width: 400px;
+  margin: 50px auto;
+}
+.formCreate .form-content {
+  margin: 20px 0;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.formCreate .form-content input {
+  width: 320px;
+  height: 40px;
+}
+.formCreate .recover {
+  text-align: center;
+  margin: 30px 0;
+}
+.formCreate .recover input {
+  padding: 3px;
+  font-size: 12px;
+}
+.formCreate .submit {
+  text-align: center;
+  margin: 30px 0;
+}
+.formCreate .submit input {
+  padding: 10px 20px;
+  font-size: 18px;
+}
+.formCreate .createNew {
+  text-align: center;
+  margin: 30px 0;
+}
+.formCreate .createNew input {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.product-container .product-img {
+  width: 60px;
+  height: 80px;
+  background: blueviolet;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 

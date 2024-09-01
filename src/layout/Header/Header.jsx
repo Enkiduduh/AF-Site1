@@ -1,10 +1,22 @@
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "../../assets/HeroSeedLogo2.png"
 
 function Header() {
+
+const [returnToHomepage, setReturnToHomepage] = useState(false)
+const navigate = useNavigate()
+
+const handleClickReturnToHomepage = () => {
+  setReturnToHomepage(true)
+  navigate("/")
+}
+
+
   return (
     <div className="header-container">
-      <div className="logo">
+      <div className="logo" onClick={handleClickReturnToHomepage}>
         <img src={Logo} alt="" />
       </div>
       <div className="searchbar-container">

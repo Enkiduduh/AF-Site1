@@ -1,0 +1,164 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "category": "Pots",
+      "name": "Terracotta Pot",
+      "quantity": 10,
+      "price": 15,
+      "description": "Classic terracotta pot for indoor and outdoor plants."
+    },
+    {
+      "id": 2,
+      "category": "Pots",
+      "name": "Plastic Planter",
+      "quantity": 20,
+      "price": 5,
+      "description": "Lightweight and durable plastic planter in various colors."
+    },
+    {
+      "id": 3,
+      "category": "Pots",
+      "name": "Hanging Basket",
+      "quantity": 15,
+      "price": 10,
+      "description": "Ideal for hanging plants in your garden or balcony."
+    },
+    {
+      "id": 4,
+      "category": "Pots",
+      "name": "Ceramic Pot",
+      "quantity": 8,
+      "price": 20,
+      "description": "Elegant ceramic pot perfect for decorative plants."
+    },
+    {
+      "id": 5,
+      "category": "Pots",
+      "name": "Self-Watering Pot",
+      "quantity": 12,
+      "price": 25,
+      "description": "Convenient self-watering pot to keep your plants hydrated."
+    },
+    {
+      "id": 6,
+      "category": "Soil",
+      "name": "Potting Soil",
+      "quantity": 50,
+      "price": 8,
+      "description": "Rich potting soil for all types of indoor and outdoor plants."
+    },
+    {
+      "id": 7,
+      "category": "Soil",
+      "name": "Garden Soil",
+      "quantity": 40,
+      "price": 7,
+      "description": "Nutrient-rich garden soil for flower beds and vegetable gardens."
+    },
+    {
+      "id": 8,
+      "category": "Soil",
+      "name": "Cactus Mix",
+      "quantity": 30,
+      "price": 6,
+      "description": "Specialized soil mix for cacti and succulents."
+    },
+    {
+      "id": 9,
+      "category": "Soil",
+      "name": "Compost",
+      "quantity": 25,
+      "price": 12,
+      "description": "Organic compost for enriching soil and promoting plant growth."
+    },
+    {
+      "id": 10,
+      "category": "Soil",
+      "name": "Peat Moss",
+      "quantity": 20,
+      "price": 10,
+      "description": "Peat moss for improving soil texture and water retention."
+    },
+    {
+      "id": 11,
+      "category": "Seeds",
+      "name": "Rose Seed",
+      "quantity": 100,
+      "price": 5,
+      "description": "Premium quality rose seeds for beautiful blooms."
+    },
+    {
+      "id": 12,
+      "category": "Seeds",
+      "name": "Tomato Seed",
+      "quantity": 200,
+      "price": 3,
+      "description": "Heirloom tomato seeds for juicy and flavorful tomatoes."
+    },
+    {
+      "id": 13,
+      "category": "Seeds",
+      "name": "Sunflower Seed",
+      "quantity": 150,
+      "price": 4,
+      "description": "Giant sunflower seeds for tall and vibrant flowers."
+    },
+    {
+      "id": 14,
+      "category": "Seeds",
+      "name": "Carrot Seed",
+      "quantity": 180,
+      "price": 2,
+      "description": "Crisp and sweet carrot seeds for your vegetable garden."
+    },
+    {
+      "id": 15,
+      "category": "Seeds",
+      "name": "Basil Seed",
+      "quantity": 120,
+      "price": 3,
+      "description": "Fresh basil seeds for aromatic and flavorful herbs."
+    },
+    {
+      "id": 16,
+      "category": "Tools",
+      "name": "Shovel",
+      "quantity": 30,
+      "price": 15,
+      "description": "Durable shovel for digging and planting in your garden."
+    },
+    {
+      "id": 17,
+      "category": "Tools",
+      "name": "Pruning Shears",
+      "quantity": 25,
+      "price": 12,
+      "description": "Sharp pruning shears for trimming and shaping plants."
+    },
+    {
+      "id": 18,
+      "category": "Tools",
+      "name": "Garden Hoe",
+      "quantity": 20,
+      "price": 10,
+      "description": "Essential garden hoe for weeding and cultivating soil."
+    },
+    {
+      "id": 19,
+      "category": "Tools",
+      "name": "Watering Can",
+      "quantity": 35,
+      "price": 8,
+      "description": "Classic watering can for gentle and precise watering."
+    },
+    {
+      "id": 20,
+      "category": "Plants",
+      "name": "Lavender Plant",
+      "quantity": 50,
+      "price": 7,
+      "description": "Fragrant lavender plant ready to be transplanted into your garden."
+    }
+  ]
+}

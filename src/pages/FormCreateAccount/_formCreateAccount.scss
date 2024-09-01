@@ -1,0 +1,44 @@
+.form-container {
+  width: 550px;
+  margin: 50px auto;
+  border: 1px solid white;
+}
+
+.formCreate {
+  width: 400px;
+  margin: 50px auto;
+  .form-content {
+    margin: 20px 0;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    input {
+      width: 320px;
+      height: 40px;
+    }
+  }
+  .recover {
+    text-align: center;
+    margin: 30px 0;
+    input {
+      padding: 3px;
+      font-size: 12px;
+    }
+  }
+  .submit {
+    text-align: center;
+    margin: 30px 0;
+    input {
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+  }
+  .createNew {
+    text-align: center;
+    margin: 30px 0;
+    input {
+      padding: 5px;
+      font-size: 14px;
+    }
+  }
+}

@@ -1,4 +1,6 @@
-@import "../layout/header/header", "../layout/footer/footer",  "../layout/views/view", "../styles/variables";
+@import "../layout/Header/header", "../layout/Footer/footer",
+  "../layout/views/view", "../styles/variables",
+  "../../src/pages/FormCreateAccount/formCreateAccount", "../pages/Cart/cart", "../components/Product/product";
 
 * {
   margin: 0;
@@ -6,7 +8,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
