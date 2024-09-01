@@ -1,12 +1,12 @@
+import Cart from "../../pages/Cart/Cart";
+import Home from "../../pages/Home/Home";
 
 function View() {
   return (
     <div className="view-container">
-
-      <div>test2</div>
-
+      <Home />
     </div>
-  )
+  );
 }
 
-export default View
+export default View;

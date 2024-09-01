@@ -1,7 +1,6 @@
 .header-container {
   height: 80px;
-  background: rgb(14, 138, 14);
-  background: rgb(14, 138, 14);
+  background: green;
   border: 1px solid white;
   color: white;
   display: flex;
