@@ -1,6 +1,7 @@
 @import "../layout/Header/header", "../layout/Footer/footer",
   "../layout/views/view", "../styles/variables",
-  "../../src/pages/FormCreateAccount/formCreateAccount", "../pages/Cart/cart", "../components/Product/product";
+  "../../src/pages/Login/login", "../pages/Cart/cart", "../components/Product/product",
+  "../pages/Home/home";
 
 * {
   margin: 0;

@@ -1,0 +1,28 @@
+.nav-container {
+display : flex;
+justify-content: center;
+align-items: center;
+margin: 5px auto;
+background-color: white;
+  .nav-button {
+    // border: 2px solid black;
+    // border-radius: 15px;
+    background: green;
+    width: 100px;
+    text-align: center;
+    font-size:18px;
+    font-weight: 600;
+  }
+}
+
+
+
+.banner {
+  background-color: white;
+  text-align: center;
+  .banner-img {
+    height: 400px;
+    width: 1000px;
+
+  }
+}

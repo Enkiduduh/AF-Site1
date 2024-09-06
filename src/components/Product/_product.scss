@@ -1,11 +1,17 @@
 .product-container {
+  display : flex;
+  justify-content: space-between;
+  align-items: center;
   
   .product-content {
+    display : flex;
+    flex-direction: column;
+
   }
 
   .product-img {
-    width: 60px;
-    height: 80px;
+    width: 80px;
+    height: 100px;
     background: blueviolet;
   }
 }

@@ -1,4 +1,4 @@
-function FormCreateAccount() {
+function Login() {
   return (
     <>
       <div className="form-container">
@@ -28,4 +28,4 @@ function FormCreateAccount() {
   );
 }
 
-export default FormCreateAccount;
+export default Login;

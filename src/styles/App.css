@@ -103,10 +103,43 @@
   font-size: 14px;
 }
 
+.product-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-container .product-content {
+  display: flex;
+  flex-direction: column;
+}
 .product-container .product-img {
-  width: 60px;
-  height: 80px;
+  width: 80px;
+  height: 100px;
   background: blueviolet;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px auto;
+  background-color: white;
+}
+.nav-container .nav-button {
+  background: green;
+  width: 100px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.banner {
+  background-color: white;
+  text-align: center;
+}
+.banner .banner-img {
+  height: 400px;
+  width: 1000px;
 }
 
 * {
