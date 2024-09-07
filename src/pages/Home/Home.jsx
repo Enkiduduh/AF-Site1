@@ -37,7 +37,6 @@ function Home() {
 
   return (
     <div>
-      <Navbar/>
       <div className="banner">
         <img className="banner-img" src={Banner} alt="" />
         <div className="banner-text">

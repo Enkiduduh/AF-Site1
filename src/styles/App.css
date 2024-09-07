@@ -44,6 +44,10 @@
   margin: 0 auto;
 }
 
+.icon {
+  cursor: pointer;
+}
+
 .footer-container {
   background: green;
   width: 100vw;
@@ -237,6 +241,65 @@
   background: white;
   color: green;
   cursor: pointer;
+}
+
+.location-store-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.location-store-infos {
+  width: 600px;
+  height: 300px;
+  padding: 20px;
+}
+
+.location-store-whereabout {
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+  padding: 20px;
+}
+.location-store-whereabout .days-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+}
+
+.form-contact {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 10px;
+  margin: 10px;
+  background-color: green;
+  border-radius: 5px;
+}
+.form-contact .form-contact-input {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+.form-contact .form-contact-input input {
+  width: 200px;
+  height: 30px;
+}
+.form-contact textarea {
+  resize: none;
+  width: 200px;
+  height: 160px;
+}
+.form-contact .button-valid-form {
+  height: 40px;
+  margin: 0 auto;
+  border: 1px solid white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 * {
