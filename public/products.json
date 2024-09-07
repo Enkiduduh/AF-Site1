@@ -6,7 +6,8 @@
       "name": "Terracotta Pot",
       "quantity": 10,
       "price": 15,
-      "description": "Classic terracotta pot for indoor and outdoor plants."
+      "description": "Classic terracotta pot for indoor and outdoor plants.",
+      "img": "terracotta_pot.png"
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "name": "Plastic Planter",
       "quantity": 20,
       "price": 5,
-      "description": "Lightweight and durable plastic planter in various colors."
+      "description": "Lightweight and durable plastic planter in various colors.",
+      "img": "plastic_planter.png"
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "name": "Hanging Basket",
       "quantity": 15,
       "price": 10,
-      "description": "Ideal for hanging plants in your garden or balcony."
+      "description": "Ideal for hanging plants in your garden or balcony.",
+      "img": "hanging_basket.png"
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "name": "Ceramic Pot",
       "quantity": 8,
       "price": 20,
-      "description": "Elegant ceramic pot perfect for decorative plants."
+      "description": "Elegant ceramic pot perfect for decorative plants.",
+      "img": "ceramic_pot.png"
     },
     {
       "id": 5,
@@ -38,7 +42,8 @@
       "name": "Self-Watering Pot",
       "quantity": 12,
       "price": 25,
-      "description": "Convenient self-watering pot to keep your plants hydrated."
+      "description": "Convenient self-watering pot to keep your plants hydrated.",
+      "img": "self_watering_pot.png"
     },
     {
       "id": 6,
@@ -46,7 +51,8 @@
       "name": "Potting Soil",
       "quantity": 50,
       "price": 8,
-      "description": "Rich potting soil for all types of indoor and outdoor plants."
+      "description": "Rich potting soil for all types of indoor and outdoor plants.",
+      "img": "potting_soil.png"
     },
     {
       "id": 7,
@@ -54,7 +60,8 @@
       "name": "Garden Soil",
       "quantity": 40,
       "price": 7,
-      "description": "Nutrient-rich garden soil for flower beds and vegetable gardens."
+      "description": "Nutrient-rich garden soil for flower beds and vegetable gardens.",
+      "img": "garden_soil.png"
     },
     {
       "id": 8,
@@ -62,7 +69,8 @@
       "name": "Cactus Mix",
       "quantity": 30,
       "price": 6,
-      "description": "Specialized soil mix for cacti and succulents."
+      "description": "Specialized soil mix for cacti and succulents.",
+      "img": "cactus_mix.png"
     },
     {
       "id": 9,
@@ -70,7 +78,8 @@
       "name": "Compost",
       "quantity": 25,
       "price": 12,
-      "description": "Organic compost for enriching soil and promoting plant growth."
+      "description": "Organic compost for enriching soil and promoting plant growth.",
+      "img": "compost.png"
     },
     {
       "id": 10,
@@ -78,7 +87,8 @@
       "name": "Peat Moss",
       "quantity": 20,
       "price": 10,
-      "description": "Peat moss for improving soil texture and water retention."
+      "description": "Peat moss for improving soil texture and water retention.",
+      "img": "peat_moss.png"
     },
     {
       "id": 11,
@@ -86,7 +96,8 @@
       "name": "Rose Seed",
       "quantity": 100,
       "price": 5,
-      "description": "Premium quality rose seeds for beautiful blooms."
+      "description": "Premium quality rose seeds for beautiful blooms.",
+      "img": "rose_seeds.png"
     },
     {
       "id": 12,
@@ -94,7 +105,8 @@
       "name": "Tomato Seed",
       "quantity": 200,
       "price": 3,
-      "description": "Heirloom tomato seeds for juicy and flavorful tomatoes."
+      "description": "Heirloom tomato seeds for juicy and flavorful tomatoes.",
+      "img": "tomato_seeds.png"
     },
     {
       "id": 13,
@@ -102,7 +114,8 @@
       "name": "Sunflower Seed",
       "quantity": 150,
       "price": 4,
-      "description": "Giant sunflower seeds for tall and vibrant flowers."
+      "description": "Giant sunflower seeds for tall and vibrant flowers.",
+      "img": "sunflower_seeds.png"
     },
     {
       "id": 14,
@@ -110,7 +123,8 @@
       "name": "Carrot Seed",
       "quantity": 180,
       "price": 2,
-      "description": "Crisp and sweet carrot seeds for your vegetable garden."
+      "description": "Crisp and sweet carrot seeds for your vegetable garden.",
+      "img": "carrot_seeds.png"
     },
     {
       "id": 15,
@@ -118,7 +132,8 @@
       "name": "Basil Seed",
       "quantity": 120,
       "price": 3,
-      "description": "Fresh basil seeds for aromatic and flavorful herbs."
+      "description": "Fresh basil seeds for aromatic and flavorful herbs.",
+      "img": "basil_seeds.png"
     },
     {
       "id": 16,
@@ -126,7 +141,8 @@
       "name": "Shovel",
       "quantity": 30,
       "price": 15,
-      "description": "Durable shovel for digging and planting in your garden."
+      "description": "Durable shovel for digging and planting in your garden.",
+      "img": "shovel.png"
     },
     {
       "id": 17,
@@ -134,7 +150,8 @@
       "name": "Pruning Shears",
       "quantity": 25,
       "price": 12,
-      "description": "Sharp pruning shears for trimming and shaping plants."
+      "description": "Sharp pruning shears for trimming and shaping plants.",
+      "img": "pruning_shears.png"
     },
     {
       "id": 18,
@@ -142,7 +159,8 @@
       "name": "Garden Hoe",
       "quantity": 20,
       "price": 10,
-      "description": "Essential garden hoe for weeding and cultivating soil."
+      "description": "Essential garden hoe for weeding and cultivating soil.",
+      "img": "garden_hoe.png"
     },
     {
       "id": 19,
@@ -150,7 +168,8 @@
       "name": "Watering Can",
       "quantity": 35,
       "price": 8,
-      "description": "Classic watering can for gentle and precise watering."
+      "description": "Classic watering can for gentle and precise watering.",
+      "img": "watering_can.png"
     },
     {
       "id": 20,
@@ -158,7 +177,8 @@
       "name": "Lavender Plant",
       "quantity": 50,
       "price": 7,
-      "description": "Fragrant lavender plant ready to be transplanted into your garden."
+      "description": "Fragrant lavender plant ready to be transplanted into your garden.",
+      "img": "lavender_plant.png"
     }
   ]
 }

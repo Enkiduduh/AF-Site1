@@ -1,7 +1,6 @@
 .header-container {
   height: 80px;
   background: green;
-  border: 1px solid white;
   color: white;
   display: flex;
   justify-content: space-around;
@@ -103,43 +102,92 @@
   font-size: 14px;
 }
 
-.product-container {
+.products-container {
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-items: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  row-gap: 30px;
+}
+
+.product-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 400px;
+  color: black;
+  border: 1px solid black;
+  padding: 5px 10px;
+  background-color: beige;
 }
-.product-container .product-content {
+.product-content .product-infos {
   display: flex;
   flex-direction: column;
+  width: 350px;
 }
-.product-container .product-img {
-  width: 80px;
+.product-content .product-img {
+  width: 100px;
   height: 100px;
-  background: blueviolet;
+  background: white;
+}
+.product-content .product-description {
+  color: black;
 }
 
 .nav-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px auto;
   background-color: white;
+  font-family: "Indie Flower", system-ui;
+  width: 100%;
 }
 .nav-container .nav-button {
   background: green;
-  width: 100px;
+  width: 25%;
   text-align: center;
   font-size: 18px;
   font-weight: 600;
 }
+.nav-container .nav-button:hover {
+  background: white;
+  color: green;
+}
 
 .banner {
   background-color: white;
-  text-align: center;
+  background-color: #94c665;
+  text-align: left;
+  display: flex;
+  align-items: center;
 }
 .banner .banner-img {
-  height: 400px;
-  width: 1000px;
+  height: 350px;
+  width: 900px;
+}
+.banner .banner-text {
+  font-family: "Indie Flower", system-ui;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 350px;
+  padding: 10px;
+  font-size: 38px;
+  font-weight: 600;
+  background-color: white;
+  color: black;
+  background-image: url("../../../public/image_products/bgHeroSeed.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner .banner-text span {
+  margin: 10px;
+  color: #7f3300;
+  text-shadow: 0px 0px 5px rgb(255, 255, 255), 0px 0px 10px rgb(255, 255, 255), 0px 0px 15px rgb(255, 255, 255), 0px 0px 20px rgb(73, 255, 24), 0px 0px 30px rgb(73, 255, 24), 0px 0px 40px rgb(73, 255, 24), 0px 0px 55px rgb(73, 255, 24), 0px 0px 75px rgb(73, 255, 24);
 }
 
 * {
