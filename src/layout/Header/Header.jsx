@@ -6,6 +6,8 @@ import Logo from "../../assets/HeroSeedLogo2.png"
 function Header() {
 
 const [returnToHomepage, setReturnToHomepage] = useState(false)
+const [clickToHomepage, setClickToHomepage] = useState(false)
+
 const navigate = useNavigate()
 
 const handleClickReturnToHomepage = () => {
@@ -13,10 +15,15 @@ const handleClickReturnToHomepage = () => {
   navigate("/")
 }
 
+const handleClickToHomepage = () => {
+  setClickToHomepage(true)
+  navigate("/location-store")
+}
+
 
   return (
     <div className="header-container">
-      <div className="logo" onClick={handleClickReturnToHomepage}>
+      <div className="logo icon" onClick={handleClickReturnToHomepage}>
         <img src={Logo} alt="" />
       </div>
       <div className="searchbar-container">
@@ -26,23 +33,23 @@ const handleClickReturnToHomepage = () => {
           id="input"
           value="Rechercher un produit..."
         />
-        <div className="icon-search">
+        <div className="icon-search icon">
           <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" size="lg" />
         </div>
       </div>
-      <div className="mode">
+      <div className="mode icon">
         <FontAwesomeIcon icon="fa-solid fa-moon" size="xl" />
         Dark
       </div>
-      <div className="position">
+      <div className="position icon" onClick={handleClickToHomepage}>
         <FontAwesomeIcon icon="fa-solid fa-location-dot" size="xl" />
         Find a store
       </div>
-      <div className="account">
+      <div className="account icon">
         <FontAwesomeIcon icon="fa-solid fa-user" size="xl" />
         <span>My Account</span>
       </div>
-      <div className="cart">
+      <div className="cart icon">
         <FontAwesomeIcon icon="fa-solid fa-cart-shopping" size="xl" />
         My Cart
       </div>
