@@ -14,13 +14,19 @@
   width: 400px;
   color: black;
   border: 1px solid black;
-  // border-radius: 5px;
   padding: 5px 10px;
-  background-color: beige;
+  background-color: white;
   .product-infos {
     display: flex;
     flex-direction: column;
     width: 350px;
+    .product-name {
+    font-weight: 700;
+    font-size:18px;
+    }
+    .product-info {
+      font-weight: 600;
+    }
   }
 
   .product-img {
@@ -30,5 +36,10 @@
   }
   .product-description {
     color: black;
+    padding: 0px 5px;
+  }
+  .low-quantity {
+    color: red;
+    font-weight: 600;
   }
 }

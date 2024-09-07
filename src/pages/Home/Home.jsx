@@ -13,6 +13,10 @@ function Home() {
     navigate("/cart");
   };
 
+  const checkQuantity = (productQuantity) => {
+    return productQuantity <= 12 ? "low-quantity" : "";
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -47,16 +51,30 @@ function Home() {
         </div>
       </div>
       <div className="products-container">
-        {products && (
+        {products.length > 0 && (
           <>
             {products.map((product) => (
               <>
                 <div className="product-content" key={product.id}>
                   <div className="product-infos">
-                    <span>{product.name}</span>
-                    <span>{product.category}</span>
-                    <span>{product.price}</span>
-                    <span>{product.quantity}</span>
+                    <span className="product-name">{product.name}</span>
+                    <span className="product-info">
+                      Category: {product.category}
+                    </span>
+                    <span className="product-info">
+                      Price: {product.price}€
+                    </span>
+                    <span className="product-info">
+                      Sold {product.soldBy}
+                    </span>
+                    
+                    <span
+                      className={`product-info ${checkQuantity(
+                        product.quantity
+                      )}`}
+                    >
+                      Available: {product.quantity}
+                    </span>
                     <span className="product-description">
                       {product.description}
                     </span>
