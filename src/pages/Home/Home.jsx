@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Banner from "../../assets/banner.png";
 import Product from "../../components/Product/Product";
+import Navbar from "../../components/NavBar/NavBar"
 import img from "/public/image_products/tomato_seeds.png";
 function Home() {
   const [navToCart, setNavToCart] = useState(false);
@@ -36,12 +37,7 @@ function Home() {
 
   return (
     <div>
-      <nav className="nav-container">
-        <div className="nav-button">Seeds</div>
-        <div className="nav-button">Plants</div>
-        <div className="nav-button">Tools</div>
-        <div className="nav-button">Pots</div>
-      </nav>
+      <Navbar/>
       <div className="banner">
         <img className="banner-img" src={Banner} alt="" />
         <div className="banner-text">
@@ -67,7 +63,7 @@ function Home() {
                     <span className="product-info">
                       Sold {product.soldBy}
                     </span>
-                    
+
                     <span
                       className={`product-info ${checkQuantity(
                         product.quantity
