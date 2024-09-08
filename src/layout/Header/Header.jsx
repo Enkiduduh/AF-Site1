@@ -7,6 +7,7 @@ function Header() {
 
 const [returnToHomepage, setReturnToHomepage] = useState(false)
 const [clickToHomepage, setClickToHomepage] = useState(false)
+const [clickToAccount, setClickToAccount] = useState(false)
 
 const navigate = useNavigate()
 
@@ -20,6 +21,10 @@ const handleClickToHomepage = () => {
   navigate("/location-store")
 }
 
+const handleClickToAccount = () => {
+  setClickToHomepage(true)
+  navigate("/login")
+}
 
   return (
     <div className="header-container">
@@ -45,7 +50,7 @@ const handleClickToHomepage = () => {
         <FontAwesomeIcon icon="fa-solid fa-location-dot" size="xl" />
         Find a store
       </div>
-      <div className="account icon">
+      <div className="account icon" onClick={handleClickToAccount}>
         <FontAwesomeIcon icon="fa-solid fa-user" size="xl" />
         <span>My Account</span>
       </div>
