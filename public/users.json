@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "lastname": "Soumar",
+      "firstname": "Ilyes",
+      "email": "admin@heroseed.fr",
+      "password": "test1234",
+      "dateOfCreation": "08/09/23",
+      "address": "1 rue heroseed 44600 Saint-Nazaire",
+      "order": [
+        {
+          "id": 1,
+          "bills": 60,
+          "products": [
+            {
+              "id": 1,
+              "quantity": 3
+            },
+            {
+              "id": 3,
+              "quantity": 1
+            },
+            {
+              "id": 4,
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "bills": 25,
+          "products": [
+            {
+              "id": 11,
+              "quantity": 2
+            },
+            {
+              "id": 12,
+              "quantity": 1
+            },
+            {
+              "id": 13,
+              "quantity": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "lastname": "Hubert",
+      "firstname": "Jean",
+      "email": "hjean@test.fr",
+      "password": "azerty",
+      "dateOfCreation": "12/07/24",
+      "address": "7 avenue du test cool 12345 Cool Test",
+      "order": [
+        {
+          "id": 1,
+          "bills": 13,
+          "products": [
+            {
+              "id": 20,
+              "quantity": 1
+            },
+            {
+              "id": 8,
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "lastname": "Selene",
+      "firstname": "Jardina",
+      "email": "selene@test.fr",
+      "password": "azerty",
+      "dateOfCreation": "14/01/24",
+      "address": "37 faubourd Saint-Jean Paris 75004",
+      "order": [{}]
+    }
+  ]
+}
