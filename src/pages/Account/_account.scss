@@ -1,0 +1,88 @@
+#userName {
+  padding: 10px 20px;
+}
+.account-action {
+  margin: 10px;
+
+  .action {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 20px 0;
+    div {
+      margin: 0 10px;
+    }
+  }
+  .action-account {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 5px;
+    background: white;
+    color: black;
+  }
+  .modify {
+    width: 80px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    background: white;
+    color: black;
+  }
+}
+
+.order-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  width: 800px;
+  margin: 20px;
+  background: white;
+  color: black;
+  .separation {
+    height: 100%;
+    width: 2px;
+    background-color: black;
+  }
+}
+
+.order-product-infos {
+  width: 300px;
+}
+.order {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  padding: 15px;
+}
+.product-details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-left: 10px;
+  .name {
+    color: black;
+    font-weight: 600;
+  }
+}
+
+.order-product-state {
+  display: flex;
+  flex-direction: column;
+}
+.order-product-shipment {
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+}

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { faSliders } from "@fortawesome/free-solid-svg-icons/faSliders";
+// import { useDispatch, useSelector } from "react-redux";
 
 function Login() {
-  const isLogged = useSelector((state) => state.auth.isLogged);
+  // const isLogged = useSelector((state) => state.auth.isLogged);
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
+  const [userId, setUserId] = useState(null);
   const [isCredentialsOkay, setIsCredentialsOkay] = useState(false);
 
   useEffect(() => {
@@ -31,10 +31,6 @@ function Login() {
     password: "",
   });
 
-  useEffect(() => {
-    if (isLogged) navigate(`/account`);
-  });
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
@@ -42,22 +38,31 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const xEmail = users.map((user) => user.email);
-    const xPassword = users.map((user) => user.password);
-    for (let i = 0; i < xEmail.length; i++) {
-      if (formData.email == xEmail[i] && formData.password == xPassword[i]) {
-        console.log(formData);
-        console.log(
-          `Le couple : ${formData.email} ${formData.password} est correcte`
-        );
+    let foundUserId = null;
+
+    for (let user of users) {
+      if (
+        formData.email === user.email &&
+        formData.password === user.password
+      ) {
+        foundUserId = user.id;
         setIsCredentialsOkay(true);
+        setUserId(foundUserId);
+        break;
       }
+    }
+
+    if (!foundUserId) {
+      alert("Invalid email or password");
+      setIsCredentialsOkay(false);
     }
   };
 
   useEffect(() => {
-    if (isCredentialsOkay) navigate(`/account`);
-  });
+    if (isCredentialsOkay && userId) {
+      navigate(`/account/${userId}`);
+    }
+  }, [isCredentialsOkay, userId, navigate]);
 
   return (
     <>
