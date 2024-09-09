@@ -13,6 +13,9 @@
         {
           "id": 1,
           "bills": 60,
+          "paidBy":"card",
+          "state": "completed",
+          "dateOfOrder": "18/12/23",
           "products": [
             {
               "id": 1,
@@ -31,6 +34,9 @@
         {
           "id": 2,
           "bills": 25,
+          "paidBy":"PayPal",
+          "dateOfOrder": "09/08/24",
+          "state": "ongoing",
           "products": [
             {
               "id": 11,
@@ -61,6 +67,9 @@
         {
           "id": 1,
           "bills": 13,
+          "paidBy":"PayPal",
+          "dateOfOrder": "09/08/24",
+          "state": "completed",
           "products": [
             {
               "id": 20,
