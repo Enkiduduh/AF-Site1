@@ -2,8 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Banner from "../../assets/banner.png";
 import Product from "../../components/Product/Product";
-import Navbar from "../../components/NavBar/NavBar";
-import img from "/public/image_products/tomato_seeds.png";
+
 function Home() {
   const [navToCart, setNavToCart] = useState(false);
   const [products, setProducts] = useState([]);
@@ -21,18 +20,18 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/products.json");
+        const response = await fetch(`http://localhost:3000/api/products`);
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
-        setProducts(data.products);
+        setProducts(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-    fetchData();
     console.log(products);
+    fetchData();
   }, []);
 
   return (
@@ -48,43 +47,19 @@ function Home() {
       <div className="products-container">
         {products.length > 0 && (
           <>
-            {products.map((product) => (
+            {products.map((products) => (
               <>
-                <div className="product-content" key={product.id}>
-                  <div className="product-infos">
-                    <span className="product-name">{product.name}</span>
-                    <span className="product-info">
-                      Category: {product.category}
-                    </span>
-                    <span className="product-info">
-                      Price: {product.price}€
-                    </span>
-                    <span className="product-info">Sold {product.soldBy}</span>
-
-                    <span
-                      className={`product-info ${checkQuantity(
-                        product.quantity
-                      )}`}
-                    >
-                      Available: {product.quantity}
-                    </span>
-                    <span className="product-description">
-                      {product.description}
-                    </span>
-                  </div>
-                  <div>
-                    <div className="product-img">
-                      <img
-                        src={`/image_products/${product.img}`}
-                        alt={product.name}
-                      />
-                    </div>
-                    <div>
-                      <button>Add to cart</button>
-                    </div>
-                    <div>reviews : 4/5</div>
-                  </div>
-                </div>
+              < Product
+              id={products.id}
+              category={products.category}
+              name={products.name}
+              soldBy={products.soldBy}
+              price={products.price}
+              quantity={products.quantity}
+              description={products.description}
+              img={products.img}
+              checkQuantity={checkQuantity}
+              />
               </>
             ))}
           </>
