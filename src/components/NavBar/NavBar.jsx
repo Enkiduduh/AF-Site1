@@ -21,6 +21,7 @@ function NavBar() {
     <nav className="nav-container">
       <div className="nav-button">Seeds</div>
       <div className="nav-button">Plants</div>
+      <div className="nav-button">Soil</div>
       <div className="nav-button">Tools</div>
       <div className="nav-button">Pots</div>
       <div className="nav-button" onClick={handleClickToAdvices}>
