@@ -1,30 +1,39 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Logo from "../../assets/HeroSeedLogo2.png"
+import Logo from "../../assets/HeroSeedLogo2.png";
+import { clearToken } from "../../components/features/auth/authSlice";
 
 function Header() {
+  const isLogged = useSelector((state) => state.auth.isLogged);
+  const user = useSelector((state) => state.auth.user);
+  const [returnToHomepage, setReturnToHomepage] = useState(false);
+  const [clickToHomepage, setClickToHomepage] = useState(false);
+  const [clickToAccount, setClickToAccount] = useState(false);
+  const [clickToLogOut, setClickToLogOut] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-const [returnToHomepage, setReturnToHomepage] = useState(false)
-const [clickToHomepage, setClickToHomepage] = useState(false)
-const [clickToAccount, setClickToAccount] = useState(false)
+  const handleClickReturnToHomepage = () => {
+    setReturnToHomepage(true);
+    navigate(`/`);
+  };
 
-const navigate = useNavigate()
+  const handleClickToHomepage = () => {
+    setClickToHomepage(true);
+    navigate(`/location-store`);
+  };
 
-const handleClickReturnToHomepage = () => {
-  setReturnToHomepage(true)
-  navigate("/")
-}
+  const handleClickToAccount = () => {
+    setClickToHomepage(true);
+    navigate(`/login`);
+  };
 
-const handleClickToHomepage = () => {
-  setClickToHomepage(true)
-  navigate("/location-store")
-}
-
-const handleClickToAccount = () => {
-  setClickToHomepage(true)
-  navigate("/login")
-}
+  const handleClickToLogOut = () => {
+    setClickToLogOut(true);
+    dispatch(clearToken())
+  }
 
   return (
     <div className="header-container">
@@ -50,10 +59,23 @@ const handleClickToAccount = () => {
         <FontAwesomeIcon icon="fa-solid fa-location-dot" size="xl" />
         Find a store
       </div>
-      <div className="account icon" onClick={handleClickToAccount}>
-        <FontAwesomeIcon icon="fa-solid fa-user" size="xl" />
-        <span>My Account</span>
-      </div>
+      { isLogged ? (
+        <>
+        <div className="account icon" onClick={handleClickToAccount}>
+          <FontAwesomeIcon icon="fa-solid fa-user" size="xl" />
+          <span>My Account</span>
+        </div>
+        <div className="account icon" onClick={handleClickToLogOut}>
+        <FontAwesomeIcon icon="fa-solid fa-arrow-right-from-bracket" size="xl" />
+          <span>Log Out</span>
+        </div>
+        </>
+      ) : (
+        <div className="account icon" onClick={handleClickToAccount}>
+          <FontAwesomeIcon icon="fa-solid fa-right-to-bracket" size="xl" />
+          <span>Log In</span>
+        </div>
+      )}
       <div className="cart icon">
         <FontAwesomeIcon icon="fa-solid fa-cart-shopping" size="xl" />
         My Cart

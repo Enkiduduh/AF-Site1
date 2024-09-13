@@ -123,28 +123,39 @@
 
 // export default Account;
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector} from "react-redux"
 
 function Account() {
+  const isLogged = useSelector((state) => state.auth.isLogged);
   const [userInfo, setUserInfo] = useState(null);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLogged) {
+      navigate(`/login`);
+    }
+  }, [isLogged, navigate]);
 
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
         const response = await fetch(`http://localhost:3000/api/user`, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
         });
 
         if (!response.ok) {
-          throw new Error('Failed to fetch user data');
+          throw new Error("Failed to fetch user data");
         }
 
         const data = await response.json();
         setUserInfo(data); // Stocker les informations de l'utilisateur
       } catch (error) {
-        console.error('Error fetching user info:', error);
+        console.error("Error fetching user info:", error);
       }
     };
 
@@ -154,7 +165,9 @@ function Account() {
   return (
     <div>
       {userInfo ? (
-        <h1>Welcome, {userInfo.firstname} {userInfo.lastname}</h1>
+        <h1>
+          Welcome, {userInfo.firstname} {userInfo.lastname}
+        </h1>
       ) : (
         <p>Loading user info...</p>
       )}

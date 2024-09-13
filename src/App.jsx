@@ -1,6 +1,7 @@
 import "./styles/App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
+import { useState } from "react";
 import store from "./store";
 import AuthLoader from "./components/AuthLoader";
 import Cart from "../src/pages/Cart/Cart";
@@ -18,6 +19,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 library.add(fas);
 
 function App() {
+  const [token, setToken] = useState();
   return (
     <>
       <Provider store={store}>
@@ -28,8 +30,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/account/:id" element={<Account />} />
+              <Route path="/login" element={<Login setToken={setToken} />} />
+              <Route path="/account" element={<Account />} />
               <Route path="/location-store" element={<LocationStore />} />
               <Route path="*" element={<Error />} />
             </Routes>
