@@ -49,7 +49,11 @@
   cursor: pointer;
 }
 
-.footer-container {
+.footer {
+  flex-shrink: 0;
+  display: inline-flex;
+}
+.footer .footer-container {
   background: green;
   width: 100vw;
   text-align: center;
@@ -58,37 +62,37 @@
   padding: 0 0 20px 0;
   font-family: "Roboto", sans-serif;
 }
-.footer-container .footer-upper {
+.footer .footer-container .footer-upper {
   display: flex;
   justify-content: space-around;
   padding: 15px 0;
   background-color: rgb(253, 178, 57);
 }
-.footer-container .footer-upper .footer-upper-title {
+.footer .footer-container .footer-upper .footer-upper-title {
   color: black;
   font-weight: 700;
 }
-.footer-container .footer-bottom-logo img {
+.footer .footer-container .footer-bottom-logo img {
   width: 200px;
 }
-.footer-container .footer-bottom {
+.footer .footer-container .footer-bottom {
   display: flex;
   justify-content: space-around;
   padding: 20px 0;
 }
-.footer-container .footer-bottom .footer-bottom-title {
+.footer .footer-container .footer-bottom .footer-bottom-title {
   color: black;
   font-weight: 700;
   text-align: left;
 }
-.footer-container .footer-bottom .footer-bottom-link {
+.footer .footer-container .footer-bottom .footer-bottom-link {
   text-align: left;
 }
-.footer-container .footer-bottom .footer-bottom-link:hover {
+.footer .footer-container .footer-bottom .footer-bottom-link:hover {
   color: red;
   cursor: pointer;
 }
-.footer-container .footer-bottom .img-supplier {
+.footer .footer-container .footer-bottom .img-supplier {
   width: 100px;
 }
 
@@ -342,46 +346,65 @@
   animation: 0.3s linear dropdown-open;
   height: 320px; /* Hauteur cible lors de l'ouverture */
 }
-.dropdown-menu .orders-infos {
+.dropdown-menu .orders-infos-container {
+  color: black;
+  border: 3px solid black;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  margin: 15px 0;
+}
+.dropdown-menu .orders-infos-container .product-container {
   color: black;
 }
-.dropdown-menu .orders-infos .rows-container {
+.dropdown-menu .orders-infos-container .product-container .product-show {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.dropdown-menu .orders-infos-container .product-container .product-show .product-info {
+  width: 25%;
+  margin: 5px 15px;
+}
+.dropdown-menu .orders-infos-container .orders-infos {
+  display: flex;
+  justify-content: space-around;
+}
+.dropdown-menu .orders-infos-container .rows-container {
   padding: 5px;
   margin: 5px;
   width: 330px;
 }
-.dropdown-menu .orders-infos .rows-container .dropdown-row-container {
+.dropdown-menu .orders-infos-container .rows-container .dropdown-row-container {
   display: flex;
   margin: 5px;
 }
-.dropdown-menu .orders-infos .rows-container .dropdown-row-container .row-label {
+.dropdown-menu .orders-infos-container .rows-container .dropdown-row-container .row-label {
   width: 220px;
   border: 1px solid black;
   margin-right: 10px;
   padding-left: 10px;
   font-weight: 600;
 }
-.dropdown-menu .orders-infos .rows-container .dropdown-row-container .row-output {
+.dropdown-menu .orders-infos-container .rows-container .dropdown-row-container .row-output {
   width: 170px;
   border: 1px solid black;
   margin-right: 10px;
   padding-left: 10px;
   font-weight: 600;
 }
-.dropdown-menu .orders-infos .shipment-infos {
+.dropdown-menu .orders-infos-container .shipment-infos {
   margin: 5px;
   padding: 10px;
 }
-.dropdown-menu .orders-infos .shipment-infos .row-label {
+.dropdown-menu .orders-infos-container .shipment-infos .row-label {
   width: 170px;
   border: 1px solid black;
   margin-right: 10px;
   padding-left: 10px;
   font-weight: 600;
 }
-.dropdown-menu .orders-infos .shipment-infos .row-output {
+.dropdown-menu .orders-infos-container .shipment-infos .row-output {
   width: 170px;
   border: 1px solid black;
   margin-right: 10px;

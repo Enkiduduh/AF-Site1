@@ -9,6 +9,8 @@ function Account() {
   const isLogged = useSelector((state) => state.auth.isLogged);
   const [userInfo, setUserInfo] = useState(null);
   const [userOrders, setUserOrders] = useState(null);
+  const [userProducts, setUserProducts] = useState(null);
+  const [products, setProducts] = useState(null);
   const [isOpened, setIsOpened] = useState(false);
   const [isOpenedCmd, setIsOpenedCmd] = useState(false);
   const [isClickToModifyContact, setIsClickToModifyContact] = useState({
@@ -66,6 +68,57 @@ function Account() {
         const data = await response.json();
         setUserOrders(data); // Stocker les informations de commandes
         console.log(userOrders);
+      } catch (error) {
+        console.error("Error fetching user orders:", error);
+      }
+    };
+
+    fetchUserOrders();
+  }, []);
+
+  useEffect(() => {
+    const fetchUserOrders = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/api/orderProducts`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch user data");
+        }
+
+        const data = await response.json();
+        setUserProducts(data); // Stocker les informations de commandes
+        console.log(userProducts);
+      } catch (error) {
+        console.error("Error fetching user orders:", error);
+      }
+    };
+
+    fetchUserOrders();
+  }, []);
+
+  useEffect(() => {
+    const fetchUserOrders = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/Products`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch user data");
+        }
+
+        const data = await response.json();
+        setProducts(data); // Stocker les informations de commandes
+        console.log(products);
       } catch (error) {
         console.error("Error fetching user orders:", error);
       }
@@ -231,35 +284,85 @@ function Account() {
                 {userOrders &&
                   userOrders.map((order) => (
                     <>
-                      <div className="orders-infos">
-                        <div key={order.id} className="rows-container">
-                          <div className="dropdown-row-container">
-                            <div className="row-label">Date de commande</div>
-                            <div className="row-output">
-                              {dateConversion(order.dateOfOrder)}
+                      <div className="orders-infos-container" key={order.id}>
+                        <div className="orders-infos">
+                          <div className="rows-container">
+                            <div className="dropdown-row-container">
+                              <div className="row-label">Date de commande</div>
+                              <div className="row-output">
+                                {dateConversion(order.dateOfOrder)}
+                              </div>
+                            </div>
+                            <div className="dropdown-row-container">
+                              <div className="row-label">Total</div>
+                              <div className="row-output">{order.bills} €</div>
+                            </div>
+                            <div className="dropdown-row-container">
+                              <div className="row-label">Payé par</div>
+                              <div className="row-output">{order.paidBy}</div>
+                            </div>
+                            <div className="dropdown-row-container">
+                              <div className="row-label">Status</div>
+                              <div className="row-output">{order.state}</div>
                             </div>
                           </div>
-                          <div className="dropdown-row-container">
-                            <div className="row-label">Total</div>
-                            <div className="row-output">{order.bills} €</div>
-                          </div>
-                          <div className="dropdown-row-container">
-                            <div className="row-label">Payé par</div>
-                            <div className="row-output">{order.paidBy}</div>
-                          </div>
-                          <div className="dropdown-row-container">
-                            <div className="row-label">Status</div>
-                            <div className="row-output">{order.state}</div>
+
+                          <div className="shipment-infos">
+                            <div className="row-label">Adresse d'envoi :</div>
+                            <div className="row-output">
+                              <div>
+                                {userInfo.lastname} {userInfo.firstname}
+                              </div>
+                              <div>{userInfo.address}</div>
+                            </div>
                           </div>
                         </div>
-                        <div className="shipment-infos">
-                          <div className="row-label">Adresse d'envoi :</div>
-                          <div className="row-output">
-                            <div>
-                              {userInfo.lastname} {userInfo.firstname}
-                            </div>
-                            <div>{userInfo.address}</div>
-                          </div>
+                        <div className="product-container">
+                          {userProducts.length > 0 &&
+                            products.length > 0 &&
+                            userProducts
+                              .filter((userProduct) => {
+                                return userProduct.orderId === order.id;
+                              })
+                              .map((userProduct) => {
+                                const productData = products.find(
+                                  (product) =>
+                                    product.id === userProduct.productId
+                                );
+
+                                if (!productData) {
+                                  console.log(
+                                    "Product not found for productId: ",
+                                    userProduct.productId
+                                  );
+                                  return null;
+                                }
+
+                                return (
+                                  productData && (
+                                    <div
+                                      className="product-show"
+                                      key={userProduct.productId}
+                                    >
+                                      <div  className="product-info">
+                                        <img
+                                          src={`/image_products/${productData.img}`}
+                                          alt={productData.name}
+                                        />
+                                      </div>
+                                      <div className="product-info">{productData.name}</div>
+                                      <div className="product-info">
+                                        Quantité : {userProduct.quantity}
+                                      </div>
+                                      <div className="product-info">
+                                        {productData.price *
+                                          userProduct.quantity}{" "}
+                                        €{" "}
+                                      </div>
+                                    </div>
+                                  )
+                                );
+                              })}
                         </div>
                       </div>
                     </>
