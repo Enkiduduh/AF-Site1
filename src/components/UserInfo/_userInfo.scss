@@ -1,0 +1,76 @@
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.dropdown-row-close {
+  opacity: 0; /* Ajoute une animation d'opacité pour une disparition plus douce */
+  transition: opacity 0.3s ease;
+}
+
+.dropdown-row {
+  width: 550px;
+  color: black;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  animation: 1s linear appear;
+  opacity: 1; /* Pour l'apparition initiale */
+
+  .dropdown-row-label {
+    display: inline-block;
+    border: 1px solid black;
+    margin-right: 20px;
+    padding-left: 10px;
+  }
+  .label {
+    display: inline-block;
+    width: 120px;
+    border: 1px solid black;
+    margin-right: 20px;
+    padding-left: 10px;
+    font-weight: 600;
+  }
+  .output {
+    display: inline-block;
+    width: 350px;
+    border: 1px solid black;
+    padding-left: 10px;
+    margin-right: 20px;
+  }
+  .input {
+    height: 41.6px;
+    display: inline-block;
+    width: 350px;
+    border: 1px solid black;
+    padding-left: 10px;
+    margin-right: 20px;
+    border: 3px solid green;
+    background-color: rgb(193, 237, 193);
+  }
+  .pencil {
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid black;
+      background-color: green;
+      color: white;
+    }
+  }
+  .closeModify {
+    border: 1px solid black;
+    padding: 10px 12.5px;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid black;
+      background-color: red;
+      color: white;
+    }
+  }
+}

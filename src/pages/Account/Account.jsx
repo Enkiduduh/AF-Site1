@@ -1,10 +1,23 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import UserInfo from "../../components/UserInfo/UserInfo";
+import { dateConversion } from "../../Logic/DateConversion";
 
 function Account() {
   const isLogged = useSelector((state) => state.auth.isLogged);
   const [userInfo, setUserInfo] = useState(null);
+  const [userOrders, setUserOrders] = useState(null);
+  const [isOpened, setIsOpened] = useState(false);
+  const [isOpenedCmd, setIsOpenedCmd] = useState(false);
+  const [isClickToModifyContact, setIsClickToModifyContact] = useState({
+    firstname: false,
+    lastname: false,
+    email: false,
+    address: false,
+    mobile: false,
+  });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,6 +50,62 @@ function Account() {
     fetchUserInfo();
   }, []);
 
+  useEffect(() => {
+    const fetchUserOrders = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/orders`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch user data");
+        }
+
+        const data = await response.json();
+        setUserOrders(data); // Stocker les informations de commandes
+        console.log(userOrders);
+      } catch (error) {
+        console.error("Error fetching user orders:", error);
+      }
+    };
+
+    fetchUserOrders();
+  }, []);
+
+  const handleClickToOpen = () => {
+    setIsOpened(true);
+  };
+
+  const handleClickToClose = () => {
+    setIsOpened(false);
+  };
+
+  const handleClickToOpenCmd = () => {
+    setIsOpenedCmd(true);
+  };
+
+  const handleClickToCloseCmd = () => {
+    setIsOpenedCmd(false);
+  };
+
+  // Handles the click to modify
+  const handleClickToModifyContact = (field) => {
+    setIsClickToModifyContact((prevState) => ({
+      ...prevState,
+      [field]: true,
+    }));
+  };
+
+  // Handles the click to cancel modification
+  const handleClickToCancelModifyContact = (field) => {
+    setIsClickToModifyContact((prevState) => ({
+      ...prevState,
+      [field]: false,
+    }));
+  };
+
   return (
     <div>
       {userInfo ? (
@@ -44,63 +113,158 @@ function Account() {
           <h1 id="userName">
             Bienvenue {userInfo.firstname} {userInfo.lastname}
           </h1>
+          {/* <h2>Compte créé le {userInfo.dateOfCreation}</h2> */}
           <div className="account-action">
-            {/* Coordonnées utilisateur */}
-            <div className="action">
-              <div className="action-account">Vos coordonnées</div>
-              <div>Nom: {userInfo.lastname}</div>
-              <div>Prénom: {userInfo.firstname}</div>
-              <div>Mobile: 06 01 02 03 04</div>{" "}
-              {/* Modifiez avec des données réelles */}
-              <div>Email: {userInfo.email}</div>
-              <div className="modify">Modifier</div>
-            </div>
+            <div className="dropdown-container">
+              <div className="dropdown-section">
+                <div className="dropdown-name">Vos coordonnées</div>
+                {isOpened ? (
+                  <FontAwesomeIcon
+                    icon="fa-solid fa-chevron-down"
+                    size="xl"
+                    onClick={handleClickToClose}
+                    className="icon-dropdown"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon="fa-solid fa-chevron-up"
+                    size="xl"
+                    onClick={handleClickToOpen}
+                    className="icon-dropdown"
+                  />
+                )}
+              </div>
+              {/* A transformer en composant */}
+              <div
+                className={`${
+                  isOpened ? "dropdown-menu-close" : "dropdown-menu"
+                }`}
+              >
+                <UserInfo
+                  entryInfoUser="Nom"
+                  userInfoLastname={userInfo.lastname}
+                  funcOpenModify={handleClickToModifyContact}
+                  funcCloseModify={handleClickToCancelModifyContact}
+                  isClickToModifyContact={isClickToModifyContact.lastname}
+                  field="lastname"
+                  isOpened={isOpened}
+                  dropdownClose="dropdown-row-close"
+                  dropdownOpen="dropdown-row"
+                />
 
-            {/* Adresse utilisateur */}
-            <div className="action">
-              <div className="action-account">Votre adresse</div>
-              <div> {userInfo.address}</div>
-              <div className="modify">Modifier</div>
-            </div>
+                <UserInfo
+                  entryInfoUser="Prénom"
+                  userInfoLastname={userInfo.firstname}
+                  funcOpenModify={handleClickToModifyContact}
+                  funcCloseModify={handleClickToCancelModifyContact}
+                  isClickToModifyContact={isClickToModifyContact.firstname}
+                  field="firstname"
+                  isOpened={isOpened}
+                  dropdownClose="dropdown-row-close"
+                  dropdownOpen="dropdown-row"
+                />
 
-            {/* Commandes utilisateur */}
-            <div className="action">
-              <div className="action-account">Vos commandes</div>
-              {userInfo?.order?.length > 0 ? (
-                userInfo.order.map((order) => (
-                  <div className="order-product" key={order.id}>
-                    <div className="order-product-infos">
-                      {order.products?.map((product) => {
-                        const productData = product.find(
-                          (prod) => prod.id === product.id
-                        );
-                        return (
-                          productData && (
-                            <div className="order" key={product.id}>
-                              <div className="order-product-img">
-                                <img
-                                  src={`/image_products/${productData.img}`}
-                                  alt={productData.name}
-                                />
-                              </div>
-                              <div className="product-details">
-                                <span className="name">{productData.name}</span>
-                                <span className="quantity">
-                                  Quantité : {product.quantity}
-                                </span>
-                                <span>{`Prix à l'unité : ${productData.price}€`}</span>
-                                <button>Acheter à nouveau</button>
-                              </div>
+                <UserInfo
+                  entryInfoUser="Email"
+                  userInfoLastname={userInfo.email}
+                  funcOpenModify={handleClickToModifyContact}
+                  funcCloseModify={handleClickToCancelModifyContact}
+                  isClickToModifyContact={isClickToModifyContact.email}
+                  field="email"
+                  isOpened={isOpened}
+                  dropdownClose="dropdown-row-close"
+                  dropdownOpen="dropdown-row"
+                />
+
+                <UserInfo
+                  entryInfoUser="Mobile"
+                  userInfoLastname={userInfo.mobile}
+                  funcOpenModify={handleClickToModifyContact}
+                  funcCloseModify={handleClickToCancelModifyContact}
+                  isClickToModifyContact={isClickToModifyContact.mobile}
+                  field="mobile"
+                  isOpened={isOpened}
+                  dropdownClose="dropdown-row-close"
+                  dropdownOpen="dropdown-row"
+                />
+
+                <UserInfo
+                  entryInfoUser="Adresse"
+                  userInfoLastname={userInfo.address}
+                  funcOpenModify={handleClickToModifyContact}
+                  funcCloseModify={handleClickToCancelModifyContact}
+                  isClickToModifyContact={isClickToModifyContact.address}
+                  field="address"
+                  isOpened={isOpened}
+                  dropdownClose="dropdown-row-close"
+                  dropdownOpen="dropdown-row"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="account-action">
+            <div className="dropdown-container">
+              <div className="dropdown-section">
+                <div className="dropdown-name">Vos commandes</div>
+                {isOpenedCmd ? (
+                  <FontAwesomeIcon
+                    icon="fa-solid fa-chevron-down"
+                    size="xl"
+                    onClick={handleClickToCloseCmd}
+                    className="icon-dropdown"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon="fa-solid fa-chevron-up"
+                    size="xl"
+                    onClick={handleClickToOpenCmd}
+                    className="icon-dropdown"
+                  />
+                )}
+              </div>
+              <div
+                className={`${
+                  isOpenedCmd ? "dropdown-menu-close" : "dropdown-menu scroller"
+                }`}
+              >
+                {userOrders &&
+                  userOrders.map((order) => (
+                    <>
+                      <div className="orders-infos">
+                        <div key={order.id} className="rows-container">
+                          <div className="dropdown-row-container">
+                            <div className="row-label">Date de commande</div>
+                            <div className="row-output">
+                              {dateConversion(order.dateOfOrder)}
                             </div>
-                          )
-                        );
-                      })}
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <p>Aucune commande passée</p>
-              )}
+                          </div>
+                          <div className="dropdown-row-container">
+                            <div className="row-label">Total</div>
+                            <div className="row-output">{order.bills} €</div>
+                          </div>
+                          <div className="dropdown-row-container">
+                            <div className="row-label">Payé par</div>
+                            <div className="row-output">{order.paidBy}</div>
+                          </div>
+                          <div className="dropdown-row-container">
+                            <div className="row-label">Status</div>
+                            <div className="row-output">{order.state}</div>
+                          </div>
+                        </div>
+                        <div className="shipment-infos">
+                          <div className="row-label">Adresse d'envoi :</div>
+                          <div className="row-output">
+                            <div>
+                              {userInfo.lastname} {userInfo.firstname}
+                            </div>
+                            <div>{userInfo.address}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  ))}
+              </div>
             </div>
           </div>
         </div>
