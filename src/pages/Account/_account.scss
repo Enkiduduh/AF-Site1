@@ -122,11 +122,31 @@
   animation: 0.3s linear dropdown-open;
   height: 320px; /* Hauteur cible lors de l'ouverture */
 
-  .orders-infos {
-    display: flex;
-    justify-content: space-around;
+  .orders-infos-container {
+
     color: black;
-  
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+
+    .product-container {
+      color:black;
+      .product-show {
+        display : flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        .product-info {
+          width: 25%;
+          margin: 5px 15px;
+        }
+      }
+    }
+    .orders-infos {
+      display: flex;
+      justify-content: space-around;
+    }
     .rows-container {
       padding: 5px;
       margin: 5px;
