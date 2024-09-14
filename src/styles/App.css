@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .header-container {
   height: 80px;
   background: green;
@@ -234,6 +235,7 @@
   justify-content: left;
   align-items: center;
   margin: 20px 0;
+  border: 2px solid black;
 }
 .account-action .action div {
   margin: 0 10px;
@@ -244,7 +246,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
   margin: 10px;
   padding: 5px;
   background: white;
@@ -263,55 +264,135 @@
   color: black;
 }
 
-.order-product {
+.dropdown-container {
+  width: 700px;
+}
+.dropdown-container .dropdown-section {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  border: 1px solid black;
-  width: 800px;
-  margin: 20px;
-  background: white;
-  color: black;
-}
-.order-product .separation {
-  height: 100%;
-  width: 2px;
-  background-color: black;
-}
-
-.order-product-infos {
-  width: 300px;
-}
-
-.order {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  border-right: 1px solid black;
-  border-top: 1px solid black;
+  width: 620px;
+  border: 3px solid black;
   padding: 15px;
+  margin: 0 auto;
+  color: black;
+  background: white;
+  font-size: 24px;
+  font-weight: 700;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  transition: 1s background linear;
+}
+.dropdown-container .dropdown-section .icon-dropdown {
+  cursor: pointer;
+}
+.dropdown-container .dropdown-section:hover {
+  background: rgb(214, 212, 78);
+}
+@keyframes dropdown-open {
+  from {
+    height: 0;
+  }
+  to {
+    height: 320px;
+  }
+}
+@keyframes dropdown-close {
+  from {
+    height: 320px;
+  }
+  to {
+    height: 0;
+  }
+}
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
-.product-details {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin-left: 10px;
+.dropdown-menu-close {
+  animation: 0.2s linear dropdown-close;
+  width: 600px;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 0px 10px;
+  margin: 0 auto;
+  background: white;
+  overflow: hidden; /* Important pour cacher l'élément quand il est fermé */
+  height: 0; /* Commence par 0 lors de la fermeture */
 }
-.product-details .name {
+
+.dropdown-menu {
+  width: 600px;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 15px 10px;
+  margin: 0 auto;
+  background: white;
+  overflow: hidden; /* Important pour cacher l'élément quand il est fermé */
+  animation: 0.3s linear dropdown-open;
+  height: 320px; /* Hauteur cible lors de l'ouverture */
+}
+.dropdown-menu .orders-infos {
+  display: flex;
+  justify-content: space-around;
   color: black;
+}
+.dropdown-menu .orders-infos .rows-container {
+  padding: 5px;
+  margin: 5px;
+  width: 330px;
+}
+.dropdown-menu .orders-infos .rows-container .dropdown-row-container {
+  display: flex;
+  margin: 5px;
+}
+.dropdown-menu .orders-infos .rows-container .dropdown-row-container .row-label {
+  width: 220px;
+  border: 1px solid black;
+  margin-right: 10px;
+  padding-left: 10px;
+  font-weight: 600;
+}
+.dropdown-menu .orders-infos .rows-container .dropdown-row-container .row-output {
+  width: 170px;
+  border: 1px solid black;
+  margin-right: 10px;
+  padding-left: 10px;
+  font-weight: 600;
+}
+.dropdown-menu .orders-infos .shipment-infos {
+  margin: 5px;
+  padding: 10px;
+}
+.dropdown-menu .orders-infos .shipment-infos .row-label {
+  width: 170px;
+  border: 1px solid black;
+  margin-right: 10px;
+  padding-left: 10px;
+  font-weight: 600;
+}
+.dropdown-menu .orders-infos .shipment-infos .row-output {
+  width: 170px;
+  border: 1px solid black;
+  margin-right: 10px;
+  padding-left: 10px;
   font-weight: 600;
 }
 
-.order-product-state {
-  display: flex;
-  flex-direction: column;
-}
-
-.order-product-shipment {
-  display: flex;
-  flex-direction: column;
-  padding-right: 10px;
+.scroller {
+  overflow-y: scroll;
+  scrollbar-color: green;
+  scrollbar-width: thin;
 }
 
 .nav-container {
@@ -392,6 +473,81 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.dropdown-row-close {
+  opacity: 0; /* Ajoute une animation d'opacité pour une disparition plus douce */
+  transition: opacity 0.3s ease;
+}
+
+.dropdown-row {
+  width: 550px;
+  color: black;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  animation: 1s linear appear;
+  opacity: 1; /* Pour l'apparition initiale */
+}
+.dropdown-row .dropdown-row-label {
+  display: inline-block;
+  border: 1px solid black;
+  margin-right: 20px;
+  padding-left: 10px;
+}
+.dropdown-row .label {
+  display: inline-block;
+  width: 120px;
+  border: 1px solid black;
+  margin-right: 20px;
+  padding-left: 10px;
+  font-weight: 600;
+}
+.dropdown-row .output {
+  display: inline-block;
+  width: 350px;
+  border: 1px solid black;
+  padding-left: 10px;
+  margin-right: 20px;
+}
+.dropdown-row .input {
+  height: 41.6px;
+  display: inline-block;
+  width: 350px;
+  border: 1px solid black;
+  padding-left: 10px;
+  margin-right: 20px;
+  border: 3px solid green;
+  background-color: rgb(193, 237, 193);
+}
+.dropdown-row .pencil {
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+}
+.dropdown-row .pencil:hover {
+  border: 1px solid black;
+  background-color: green;
+  color: white;
+}
+.dropdown-row .closeModify {
+  border: 1px solid black;
+  padding: 10px 12.5px;
+  cursor: pointer;
+}
+.dropdown-row .closeModify:hover {
+  border: 1px solid black;
+  background-color: red;
+  color: white;
 }
 
 * {
