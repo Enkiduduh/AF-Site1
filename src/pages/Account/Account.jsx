@@ -1,13 +1,22 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateUserData } from "../../components/features/auth/authSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UserInfo from "../../components/UserInfo/UserInfo";
 import { dateConversion } from "../../Logic/DateConversion";
 
 function Account() {
   const isLogged = useSelector((state) => state.auth.isLogged);
+  const token = useSelector((state) => state.auth.token);
   const [userInfo, setUserInfo] = useState(null);
+  const [formData, setFormData] = useState({
+    lastname: "",
+    firstname: "",
+    email: "",
+    mobile: "",
+    address: "",
+  });
   const [userOrders, setUserOrders] = useState(null);
   const [userProducts, setUserProducts] = useState(null);
   const [products, setProducts] = useState(null);
@@ -20,13 +29,28 @@ function Account() {
     address: false,
     mobile: false,
   });
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!isLogged) {
       navigate(`/login`);
     }
   }, [isLogged, navigate]);
+
+  useEffect(() => {
+    if (userInfo) {
+      setFormData({
+        lastname: userInfo.lastname,
+        firstname: userInfo.firstname,
+        email: userInfo.email,
+        mobile: userInfo.mobile,
+        address: userInfo.address,
+      });
+      console.log("Initial form data:", userInfo);
+    }
+  }, [userInfo]);
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -159,6 +183,46 @@ function Account() {
     }));
   };
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
+    console.log(`Updated ${name}:`, value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const updatedFields = {};
+    // Comparer les valeurs actuelles avec celles modifiées, n'envoyer que les modifications
+    if (formData.firstname !== userInfo.firstname) {
+      updatedFields.firstname = formData.firstname;
+    }
+    if (formData.lastname !== userInfo.lastname) {
+      updatedFields.lastname = formData.lastname;
+    }
+    if (formData.email !== userInfo.email) {
+      updatedFields.email = formData.email;
+    }
+    if (formData.mobile !== userInfo.mobile) {
+      updatedFields.mobile = formData.mobile;
+    }
+    if (formData.address !== userInfo.address) {
+      updatedFields.address = formData.address;
+    }
+    console.log(formData.lastname, userInfo.lastname);
+    console.log("UpdatedFields:", updatedFields);
+
+    try {
+      dispatch(updateUserData(updatedFields));
+      setIsClickToModifyContact(false);
+    } catch (error) {
+      console.error(
+        "Erreur lors de la mise à jour des données utilisateur:",
+        error
+      );
+    }
+  };
+
   return (
     <div>
       {userInfo ? (
@@ -193,71 +257,82 @@ function Account() {
                   isOpened ? "dropdown-menu-close" : "dropdown-menu"
                 }`}
               >
-                <UserInfo
-                  entryInfoUser="Nom"
-                  userInfoLastname={userInfo.lastname}
-                  funcOpenModify={handleClickToModifyContact}
-                  funcCloseModify={handleClickToCancelModifyContact}
-                  isClickToModifyContact={isClickToModifyContact.lastname}
-                  field="lastname"
-                  isOpened={isOpened}
-                  dropdownClose="dropdown-row-close"
-                  dropdownOpen="dropdown-row"
-                />
+                <form onSubmit={handleSubmit}>
+                  <UserInfo
+                    entryInfoUser="Nom"
+                    userInfoLastname={formData.lastname}
+                    funcOpenModify={handleClickToModifyContact}
+                    funcCloseModify={handleClickToCancelModifyContact}
+                    isClickToModifyContact={isClickToModifyContact.lastname}
+                    field="lastname"
+                    isOpened={isOpened}
+                    dropdownClose="dropdown-row-close"
+                    dropdownOpen="dropdown-row"
+                    funcOnChange={handleChange}
+                  />
 
-                <UserInfo
-                  entryInfoUser="Prénom"
-                  userInfoLastname={userInfo.firstname}
-                  funcOpenModify={handleClickToModifyContact}
-                  funcCloseModify={handleClickToCancelModifyContact}
-                  isClickToModifyContact={isClickToModifyContact.firstname}
-                  field="firstname"
-                  isOpened={isOpened}
-                  dropdownClose="dropdown-row-close"
-                  dropdownOpen="dropdown-row"
-                />
+                  <UserInfo
+                    entryInfoUser="Prénom"
+                    userInfoLastname={formData.firstname}
+                    funcOpenModify={handleClickToModifyContact}
+                    funcCloseModify={handleClickToCancelModifyContact}
+                    isClickToModifyContact={isClickToModifyContact.firstname}
+                    field="firstname"
+                    isOpened={isOpened}
+                    dropdownClose="dropdown-row-close"
+                    dropdownOpen="dropdown-row"
+                    funcOnChange={handleChange}
+                  />
 
-                <UserInfo
-                  entryInfoUser="Email"
-                  userInfoLastname={userInfo.email}
-                  funcOpenModify={handleClickToModifyContact}
-                  funcCloseModify={handleClickToCancelModifyContact}
-                  isClickToModifyContact={isClickToModifyContact.email}
-                  field="email"
-                  isOpened={isOpened}
-                  dropdownClose="dropdown-row-close"
-                  dropdownOpen="dropdown-row"
-                />
+                  <UserInfo
+                    entryInfoUser="Email"
+                    userInfoLastname={formData.email}
+                    funcOpenModify={handleClickToModifyContact}
+                    funcCloseModify={handleClickToCancelModifyContact}
+                    isClickToModifyContact={isClickToModifyContact.email}
+                    field="email"
+                    isOpened={isOpened}
+                    dropdownClose="dropdown-row-close"
+                    dropdownOpen="dropdown-row"
+                    funcOnChange={handleChange}
+                  />
 
-                <UserInfo
-                  entryInfoUser="Mobile"
-                  userInfoLastname={userInfo.mobile}
-                  funcOpenModify={handleClickToModifyContact}
-                  funcCloseModify={handleClickToCancelModifyContact}
-                  isClickToModifyContact={isClickToModifyContact.mobile}
-                  field="mobile"
-                  isOpened={isOpened}
-                  dropdownClose="dropdown-row-close"
-                  dropdownOpen="dropdown-row"
-                />
+                  <UserInfo
+                    entryInfoUser="Mobile"
+                    userInfoLastname={formData.mobile}
+                    funcOpenModify={handleClickToModifyContact}
+                    funcCloseModify={handleClickToCancelModifyContact}
+                    isClickToModifyContact={isClickToModifyContact.mobile}
+                    field="mobile"
+                    isOpened={isOpened}
+                    dropdownClose="dropdown-row-close"
+                    dropdownOpen="dropdown-row"
+                    funcOnChange={handleChange}
+                  />
 
-                <UserInfo
-                  entryInfoUser="Adresse"
-                  userInfoLastname={userInfo.address}
-                  funcOpenModify={handleClickToModifyContact}
-                  funcCloseModify={handleClickToCancelModifyContact}
-                  isClickToModifyContact={isClickToModifyContact.address}
-                  field="address"
-                  isOpened={isOpened}
-                  dropdownClose="dropdown-row-close"
-                  dropdownOpen="dropdown-row"
-                />
+                  <UserInfo
+                    entryInfoUser="Adresse"
+                    userInfoLastname={formData.address}
+                    funcOpenModify={handleClickToModifyContact}
+                    funcCloseModify={handleClickToCancelModifyContact}
+                    isClickToModifyContact={isClickToModifyContact.address}
+                    field="address"
+                    isOpened={isOpened}
+                    dropdownClose="dropdown-row-close"
+                    dropdownOpen="dropdown-row"
+                    funcOnChange={handleChange}
+                  />
+
+                  <button className="validation">
+                    Mettre à jour les coordonnées
+                  </button>
+                </form>
               </div>
             </div>
           </div>
 
           <div className="account-action">
-            <div className="dropdown-container">
+            <div className="dropdown-container margin-with-footer">
               <div className="dropdown-section">
                 <div className="dropdown-name">Vos commandes</div>
                 {isOpenedCmd ? (
@@ -344,13 +419,15 @@ function Account() {
                                       className="product-show"
                                       key={userProduct.productId}
                                     >
-                                      <div  className="product-info">
+                                      <div className="product-info">
                                         <img
                                           src={`/image_products/${productData.img}`}
                                           alt={productData.name}
                                         />
                                       </div>
-                                      <div className="product-info">{productData.name}</div>
+                                      <div className="product-info">
+                                        {productData.name}
+                                      </div>
                                       <div className="product-info">
                                         Quantité : {userProduct.quantity}
                                       </div>

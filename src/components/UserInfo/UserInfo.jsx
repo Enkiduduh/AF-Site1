@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 
 function UserInfo({
   entryInfoUser,
@@ -9,7 +10,8 @@ function UserInfo({
   field,
   isOpened,
   dropdownClose,
-  dropdownOpen
+  dropdownOpen,
+  funcOnChange,
 }) {
   return (
     <div
@@ -31,7 +33,9 @@ function UserInfo({
         <>
           <input
             className="dropdown-row input"
-            defaultValue={userInfoLastname}
+            value={userInfoLastname} // Utilise `value` pour le contrôle complet
+            name={field} // Ajoute `name` pour identifier le champ
+            onChange={funcOnChange} // Appelle `funcOnChange` pour gérer les changements
           />
           <FontAwesomeIcon
             icon="fa-solid fa-xmark"
@@ -44,5 +48,19 @@ function UserInfo({
     </div>
   );
 }
+
+UserInfo.propTypes = {
+  entryInfoUser: PropTypes.string,
+  userInfoLastname: PropTypes.string,
+  funcOpenModify: PropTypes.func,
+  funcCloseModify: PropTypes.func,
+  isClickToModifyContact: PropTypes.func,
+  field: PropTypes.string,
+  isOpened: PropTypes.bool,
+  dropdownClose: PropTypes.string,
+  dropdownOpen: PropTypes.string,
+  funcOnChange: PropTypes.func,
+  valueForUpdate: PropTypes.string
+};
 
 export default UserInfo;
