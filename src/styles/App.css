@@ -199,6 +199,7 @@
   text-align: left;
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 .banner .banner-img {
   height: 350px;
@@ -587,6 +588,87 @@
   border: 1px solid black;
   background-color: red;
   color: white;
+}
+
+.banner-container-beforeClick {
+  margin: 15px auto;
+}
+.banner-container-beforeClick .banner-text-container-beforeClick {
+  width: 300px;
+  padding: 0px 10px;
+  border: 2px solid white;
+  background-color: green;
+  border-bottom-right-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.banner-container-beforeClick .banner-text-container-beforeClick .banner-text {
+  font-size: 30px;
+  font-weight: 700;
+}
+.banner-container-beforeClick .banner-text-container-beforeClick .icon-dropdown {
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.banner-container {
+  display: flex;
+  margin-bottom: 15px;
+  position: relative;
+}
+.banner-container .banner-icon {
+  width: 400px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.banner-container .banner-icon .icon {
+  width: 100px;
+  height: 130px;
+  background-color: blue;
+}
+.banner-container .bannerBg {
+  width: 400px;
+  height: 200px;
+  position: relative;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.banner-container .bannerBg .banner-text-container {
+  width: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0px 10px;
+  border: 2px solid white;
+  background-color: green;
+  border-bottom-right-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.banner-container .bannerBg .banner-text-container .banner-text {
+  font-size: 30px;
+  font-weight: 700;
+}
+.banner-container .bannerBg .banner-text-container .icon-dropdown {
+  cursor: pointer;
+  margin-right: 50px;
+}
+.banner-container .banner-description-wrapper {
+  width: 800px;
+  height: 350px;
+  margin: 0 10px;
+  background-color: green;
+}
+.banner-container .banner-description-wrapper .intro {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px;
 }
 
 * {

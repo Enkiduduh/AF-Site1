@@ -1,0 +1,82 @@
+.banner-container-beforeClick {
+  margin: 15px auto;
+  .banner-text-container-beforeClick {
+    width: 300px;
+    padding: 0px 10px;
+    border: 2px solid white;
+    background-color: green;
+    border-bottom-right-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .banner-text {
+      font-size: 30px;
+      font-weight: 700;
+    }
+    .icon-dropdown {
+      cursor: pointer;
+      margin-right: 50px;
+    }
+  }
+}
+
+.banner-container {
+  display: flex;
+  margin-bottom: 15px;
+  position: relative;
+  .banner-icon {
+    width: 400px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .icon {
+      width: 100px;
+      height: 130px;
+      background-color: blue;
+    }
+  }
+  .bannerBg {
+    width: 400px;
+    height: 200px;
+    position: relative;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    // margin: 20px 0;
+    .banner-text-container {
+      width: 300px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0px 10px;
+      border: 2px solid white;
+      background-color: green;
+      border-bottom-right-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .banner-text {
+        font-size: 30px;
+        font-weight: 700;
+      }
+      .icon-dropdown {
+        cursor: pointer;
+        margin-right: 50px;
+      }
+    }
+  }
+
+  .banner-description-wrapper {
+    width: 800px;
+    height: 350px;
+    margin: 0 10px;
+    background-color: green;
+    .intro {
+      font-size: 20px;
+      font-weight: 700;
+      padding: 10px;
+    }
+  }
+}
