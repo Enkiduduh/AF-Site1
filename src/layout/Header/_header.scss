@@ -1,35 +1,58 @@
-.header-container {
-  height: 80px;
-  background: green;
+.background-light {
+  background: whitesmoke;
+  color: green;
+}
+
+.background-dark {
+  background: rgb(92, 92, 92);
   color: white;
+}
+
+.border-light {
+  border: 2px solid green;
+}
+
+.border-dark {
+  border: 2px solid white;
+}
+
+.header-container {
+  height: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-
-.logo {
-  width: 180px;
-  height: 60px;
-  background: yellow;
-  margin: 10px;
-  img {
-    width: 180px;
-    height: 60px;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+  .logo-icon {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      padding: 0;
+      font-size: 28px;
+      font-family: "Lilita One", system-ui;
+    }
+    .img-logo {
+      width: 50px;
+    }
   }
 }
 
-.account, .cart, .position, .mode {
+.account,
+.cart,
+.position,
+.mode {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .searchbar-container {
   display: flex;
   align-items: center;
-  border: 2px solid white;
   border-radius: 20px;
   width: 350px;
-
 }
 .input-searchbar {
   border: none;
@@ -45,4 +68,5 @@
 
 .icon {
   cursor: pointer;
+  width: 40px;
 }
