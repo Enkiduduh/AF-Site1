@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from "../../assets/HeroSeedLogo2.png";
+import Logo from "/public/image_products/logo_64.png";
+import Logo1 from "/public/image_products/icons/heroseed.png";
 import LogoSupplier from "../../assets/logo2.png";
 function Footer() {
   const [navToHomePage, setNavToHomePage] = useState(false);
@@ -55,7 +56,9 @@ function Footer() {
         </div>
         <div className="footer-bottom">
           <div className="footer-bottom-logo">
-            <img src={Logo} alt="" />
+            <h1>HERO</h1>
+            <img src={Logo1} alt="Logo HeroSeed" className="img-logo" />
+            <h1>SEED</h1>
           </div>
           <div className="footer-bottom-navigation">
             <div className="footer-bottom-title">NAVIGATION</div>

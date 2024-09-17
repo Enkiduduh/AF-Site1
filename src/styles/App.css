@@ -1,33 +1,57 @@
 @charset "UTF-8";
-.header-container {
-  height: 80px;
-  background: green;
+.background-light {
+  background: whitesmoke;
+  color: green;
+}
+
+.background-dark {
+  background: rgb(92, 92, 92);
   color: white;
+}
+
+.border-light {
+  border: 2px solid green;
+}
+
+.border-dark {
+  border: 2px solid white;
+}
+
+.header-container {
+  height: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+.header-container .logo-icon {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-container .logo-icon h1 {
+  padding: 0;
+  font-size: 28px;
+  font-family: "Lilita One", system-ui;
+}
+.header-container .logo-icon .img-logo {
+  width: 50px;
 }
 
-.logo {
-  width: 180px;
-  height: 60px;
-  background: yellow;
-  margin: 10px;
-}
-.logo img {
-  width: 180px;
-  height: 60px;
-}
-
-.account, .cart, .position, .mode {
+.account,
+.cart,
+.position,
+.mode {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .searchbar-container {
   display: flex;
   align-items: center;
-  border: 2px solid white;
   border-radius: 20px;
   width: 350px;
 }
@@ -47,6 +71,7 @@
 
 .icon {
   cursor: pointer;
+  width: 40px;
 }
 
 .footer {
@@ -54,7 +79,8 @@
   display: inline-flex;
 }
 .footer .footer-container {
-  background: green;
+  background: whitesmoke;
+  color: green;
   width: 100vw;
   text-align: center;
   display: flex;
@@ -66,14 +92,25 @@
   display: flex;
   justify-content: space-around;
   padding: 15px 0;
-  background-color: rgb(253, 178, 57);
+  background-color: rgb(254, 220, 165);
 }
 .footer .footer-container .footer-upper .footer-upper-title {
   color: black;
   font-weight: 700;
 }
+.footer .footer-container .footer-bottom-logo {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.footer .footer-container .footer-bottom-logo h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 36px;
+  font-family: "Lilita One", system-ui;
+}
 .footer .footer-container .footer-bottom-logo img {
-  width: 200px;
+  width: 98px;
 }
 .footer .footer-container .footer-bottom {
   display: flex;
@@ -89,7 +126,7 @@
   text-align: left;
 }
 .footer .footer-container .footer-bottom .footer-bottom-link:hover {
-  color: red;
+  color: turquoise;
   cursor: pointer;
 }
 .footer .footer-container .footer-bottom .img-supplier {
@@ -99,7 +136,6 @@
 .view-container {
   flex: 1;
   padding: 20px;
-  background-color: blue;
 }
 
 .form-container {
@@ -194,38 +230,27 @@
 }
 
 .banner {
-  background-color: white;
-  background-color: #94c665;
-  text-align: left;
+  background: white;
+  text-align: center;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
-}
-.banner .banner-img {
-  height: 350px;
-  width: 900px;
-}
-.banner .banner-text {
-  font-family: "Indie Flower", system-ui;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 10px;
+  height: 370px;
   width: 100%;
-  height: 350px;
-  padding: 10px;
-  font-size: 38px;
-  font-weight: 600;
-  background-color: white;
-  color: black;
-  background-image: url("../../../public/image_products/bgHeroSeed.png");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.banner .banner-text span {
-  margin: 10px;
-  color: #7f3300;
-  text-shadow: 0px 0px 5px rgb(255, 255, 255), 0px 0px 10px rgb(255, 255, 255), 0px 0px 15px rgb(255, 255, 255), 0px 0px 20px rgb(73, 255, 24), 0px 0px 30px rgb(73, 255, 24), 0px 0px 40px rgb(73, 255, 24), 0px 0px 55px rgb(73, 255, 24), 0px 0px 75px rgb(73, 255, 24);
+.banner .banner-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 28px;
+  font-family: "Lilita One", system-ui;
+}
+.banner .banner-text img {
+  width: 150px;
 }
 
 #userName {
@@ -439,21 +464,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
   font-family: "Indie Flower", system-ui;
   width: 100%;
+  padding-top: 10px;
+  background-color: whitesmoke;
 }
 .nav-container .nav-button {
-  background: green;
+  color: green;
+  background: whitesmoke;
   width: 16.7%;
   text-align: center;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
 }
 .nav-container .nav-button:hover {
-  background: white;
   color: green;
   cursor: pointer;
+}
+.nav-container .nav-button .img-icon {
+  width: 36px;
 }
 
 .location-store-container {
@@ -591,7 +620,7 @@
 }
 
 .banner-container-beforeClick {
-  margin: 15px auto;
+  margin: 5px auto;
 }
 .banner-container-beforeClick .banner-text-container-beforeClick {
   width: 300px;

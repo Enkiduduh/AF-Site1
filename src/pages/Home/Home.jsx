@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Banner from "../../assets/banner.png";
+import Banner from "/image_products/bg_banners/bannerHeroSeed.png";
 import Product from "../../components/Product/Product";
+import Logo1 from "/public/image_products/icons/heroseed.png";
 import Banners from "../../components/Banner/Banner";
 import {
   soilsIntroFr,
@@ -48,14 +49,6 @@ function Home() {
     fetchData();
   }, []);
 
-  // const handleClickOnBannerToOpen = () => {
-  //   setIsBannerGrown(true);
-  // };
-
-  // const handleClickOnBannerToClose = () => {
-  //   setIsBannerGrown(false);
-  // };
-
   // Handles the click to modify
   const handleClickToOpenBanner = (field) => {
     setIsBannerGrown((prevState) => ({
@@ -74,12 +67,16 @@ function Home() {
 
   return (
     <div>
-      <div className="banner">
-        <img className="banner-img" src={Banner} alt="" />
+      <div
+        className="banner"
+        style={{
+          backgroundImage: `url('/image_products/bg_banners/bannerHeroSeed.png')`,
+        }}
+      >
         <div className="banner-text">
-          <span>Gardening ?</span>
-          <span>Muscles ?</span>
-          <span>Become a Hero Seed !</span>
+          <h1>HERO</h1>
+          <img src={Logo1} alt="Logo HeroSeed" className="img-logo" />
+          <h1>SEED</h1>
         </div>
       </div>
 
