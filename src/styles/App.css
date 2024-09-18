@@ -23,7 +23,6 @@
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
-  border-bottom: 1px solid black;
 }
 .header-container .logo-icon {
   width: 250px;
@@ -72,6 +71,11 @@
 .icon {
   cursor: pointer;
   width: 40px;
+}
+
+.icon-log {
+  cursor: pointer;
+  width: 60px;
 }
 
 .footer {
@@ -464,25 +468,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Indie Flower", system-ui;
+  font-family: "Lilita One", system-ui;
   width: 100%;
-  padding-top: 10px;
   background-color: whitesmoke;
-}
-.nav-container .nav-button {
-  color: green;
-  background: whitesmoke;
-  width: 16.7%;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 700;
-}
-.nav-container .nav-button:hover {
-  color: green;
-  cursor: pointer;
-}
-.nav-container .nav-button .img-icon {
-  width: 36px;
 }
 
 .location-store-container {
@@ -698,6 +686,54 @@
   font-size: 20px;
   font-weight: 700;
   padding: 10px;
+}
+
+.nav-button {
+  color: green;
+  width: 16.7%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+}
+.nav-button:hover {
+  cursor: pointer;
+}
+.nav-button:hover .text {
+  color: #FFFFFF;
+  background: #099D30;
+  text-shadow: 0 0 10px #FFFFFF;
+}
+.nav-button .img-icon {
+  width: 36px;
+}
+.nav-button .nav-dropdown {
+  position: absolute;
+  width: 100%;
+  background-color: #fedca5;
+  padding: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.nav-button .nav-dropdown .nav-products-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.nav-button .nav-dropdown .nav-products-container .product {
+  color: black;
+  font-size: 18px;
+  font-family: "Lilita One", system-ui;
+  margin: 5px 0;
+}
+.nav-button .nav-dropdown .nav-products-container .product:hover {
+  color: green;
+}
+.nav-button .displayOn {
+  display: block;
+}
+.nav-button .displayOff {
+  display: none;
 }
 
 * {

@@ -1,0 +1,49 @@
+.nav-button {
+  color: green;
+  width: 16.7%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+  &:hover {
+    cursor: pointer;
+    // border-bottom: 2px solid #fedca5;
+    // background: #fedca5;
+    .text {
+      color: #FFFFFF;
+      background: #099D30;
+      text-shadow: 0 0 10px #FFFFFF;
+    }
+  }
+  .img-icon {
+    width: 36px;
+  }
+  .nav-dropdown {
+    position: absolute;
+    width: 100%;
+    background-color: #fedca5;
+    padding: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    .nav-products-container {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      .product {
+        color: black;
+        font-size: 18px;
+        font-family: "Lilita One", system-ui;
+        margin: 5px 0;
+        &:hover {
+          color: green;
+        }
+      }
+    }
+  }
+  .displayOn {
+    display: block;
+  }
+  .displayOff {
+    display: none;
+  }
+}

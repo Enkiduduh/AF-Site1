@@ -98,12 +98,12 @@ function Header() {
             <span>My Account</span>
           </div>
           <div className="account" onClick={handleClickToLogOut}>
-            <img src={logout} alt="" className="icon" />
+            <img src={logout} alt="" className="icon-log" />
           </div>
         </>
       ) : (
         <div className="account" onClick={handleClickToAccount}>
-          <img src={login} alt="" className="icon" />
+          <img src={login} alt="" className="icon-log" />
         </div>
       )}
       <div className="cart">

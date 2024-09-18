@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useSelector,  } from "react-redux";
-import Banner from "/image_products/bg_banners/bannerHeroSeed.png";
+import { useSelector, useDispatch } from "react-redux";
+import { setProductData } from "../../components/features/product/productSlice";
 import Product from "../../components/Product/Product";
 import Logo1 from "/public/image_products/icons/heroseed.png";
 import Banners from "../../components/Banner/Banner";
@@ -13,6 +13,7 @@ import {
   potsIntroFr,
 } from "../../data/categoriesFR";
 function Home() {
+  const productsData = useSelector((state) => state.product.products);
   const [navToCart, setNavToCart] = useState(false);
   const [products, setProducts] = useState([]);
   const [isBannerGrown, setIsBannerGrown] = useState({
@@ -23,6 +24,7 @@ function Home() {
     pots: false,
   });
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleButtonToCart = () => {
     setNavToCart(true);
@@ -42,13 +44,21 @@ function Home() {
         }
         const data = await response.json();
         setProducts(data);
+        // Vérification de la structure des données reçues
+        console.log("Fetched data:", data);
+        // Dispatch des produits uniquement si la structure est correcte
+        if (data.products && Array.isArray(data.products)) {
+          dispatch(setProductData(data.products));
+        } else {
+          console.error("Invalid data structure:", data);
+        }
+        console.log(products);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-    console.log(products);
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   // Handles the click to modify
   const handleClickToOpenBanner = (field) => {
@@ -130,24 +140,22 @@ function Home() {
       </div>
 
       <div className="products-container">
-        {products.length > 0 && (
-          <>
-            {products.map((products) => (
-              <>
-                <Product
-                  id={products.id}
-                  category={products.category}
-                  name={products.name}
-                  soldBy={products.soldBy}
-                  price={products.price}
-                  quantity={products.quantity}
-                  description={products.description}
-                  img={products.img}
-                  checkQuantity={checkQuantity}
-                />
-              </>
-            ))}
-          </>
+        {Array.isArray(productsData) && productsData.length > 0 ? (
+          productsData.map((product) => (
+            <Product
+              key={product.id}
+              id={product.id}
+              category={product.category}
+              name={product.name}
+              soldBy={product.soldBy}
+              price={product.price}
+              quantity={product.quantity}
+              description={product.description}
+              img={product.img}
+            />
+          ))
+        ) : (
+          <p>No products available</p>
         )}
       </div>
       <div>
@@ -158,3 +166,13 @@ function Home() {
 }
 
 export default Home;
+
+
+
+<div className="nav-products-container">
+{products
+  .filter((product) => product.category === "seeds") // Filtrer avant le map
+  .map((product) => (
+    <div key={product.id}>{product.name}</div> // Affichage des produits filtrés
+  ))}
+</div>
