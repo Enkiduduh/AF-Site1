@@ -23,6 +23,9 @@
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .header-container .logo-icon {
   width: 250px;
@@ -187,46 +190,91 @@
   font-size: 14px;
 }
 
-.products-container {
+.products-container2 {
   margin: 20px 0;
-  display: grid;
-  grid-template-columns: auto auto auto;
+  padding: 0 100px;
+  display: flex;
+  flex-wrap: wrap;
   justify-items: center;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
-  row-gap: 30px;
+  row-gap: 10px;
 }
 
 .product-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 400px;
+  width: 200px;
   color: black;
-  border: 1px solid black;
-  padding: 5px 10px;
+  border: 2px solid transparent;
+  border-radius: 3px;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+.product-content:hover {
+  transform: scale(1.04);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.product-content:hover .product-img img {
+  transform: scale(1.08);
+}
+.product-content .product-img {
+  height: 100px;
+  background: white;
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 20px;
+}
+.product-content .product-img img {
+  transition: all 0.5s ease;
 }
 .product-content .product-infos {
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 100%;
+  padding: 5px 20px;
 }
 .product-content .product-infos .product-name {
   font-weight: 700;
   font-size: 18px;
 }
-.product-content .product-infos .product-info {
+.product-content .product-infos .product-quantity {
+  font-size: 16px;
+}
+.product-content .product-infos .product-price {
   font-weight: 600;
+  margin: 20px 0 0 0;
+  font-size: 18px;
 }
-.product-content .product-img {
-  width: 100px;
-  height: 100px;
-  background: white;
+.product-content .product-infos .product-category {
+  font-size: 14px;
+  margin: 10px 0;
 }
-.product-content .product-description {
+.product-content .product-infos .reviews {
+  display: flex;
+  align-items: center;
+  color: green;
+}
+.product-content .product-infos .reviews span {
   color: black;
-  padding: 0px 5px;
+}
+.product-content .product-info2 {
+  font-weight: 600;
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.product-content .product-info2 .button {
+  padding: 8px 15px;
+  border-radius: 2px;
+  border: 1px solid black;
+  background-color: white;
+  margin: 20px 0;
+}
+.product-content .product-info2 .button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }
 .product-content .low-quantity {
   color: red;
@@ -255,6 +303,17 @@
 }
 .banner .banner-text img {
   width: 150px;
+}
+
+.products-container {
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-items: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  row-gap: 30px;
+  height: 2;
 }
 
 #userName {
@@ -742,6 +801,7 @@
   color: black;
   width: 470px;
   font-family: "roboto", system-ui;
+  border-radius: 5px;
 }
 .product-Test .product-up {
   border-bottom: 1px solid rgba(82, 82, 82, 0.4);

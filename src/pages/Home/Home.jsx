@@ -131,6 +131,27 @@ function Home() {
         />
       </div>
 
+      <div className="products-container2">
+        {products.length > 0 && (
+          <>
+            {products.map((products) => (
+              <>
+                <Product
+                  name={products.name}
+                  category={products.category}
+                  price={products.price}
+                  description={products.description}
+                  quantity={products.quantity}
+                  img={products.img}
+                  soldBy={products.soldBy}
+                  checkQuantity={checkQuantity}
+                />
+              </>
+            ))}
+          </>
+        )}
+      </div>
+
       <div className="products-container">
         {products.length > 0 && (
           <>

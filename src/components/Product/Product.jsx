@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Product({
   id,
@@ -14,24 +15,26 @@ function Product({
   return (
     <div className="product-content" key={id}>
       <div className="product-infos">
-        <span className="product-name">{name}</span>
-        <span className="product-info">Category: {category}</span>
-        <span className="product-info">Price: {price}€</span>
-        <span className="product-info">Sold {soldBy}</span>
-
-        <span className={`product-info ${checkQuantity(quantity)}`}>
-          Available: {quantity}
-        </span>
-        <span className="product-description">{description}</span>
-      </div>
-      <div>
         <div className="product-img">
           <img src={`/image_products/${img}`} alt={name} />
         </div>
-        <div>
-          <button>Add to cart</button>
+        <span className="product-name">{name}</span>
+        <span className="product-category">{category}</span>
+        <span className={`product-quantity ${checkQuantity(quantity)}`}>
+          Available: {quantity}
+        </span>
+        <div className="reviews">
+          <FontAwesomeIcon icon="fa-solid fa-star" />
+          <FontAwesomeIcon icon="fa-solid fa-star" />
+          <FontAwesomeIcon icon="fa-solid fa-star" />
+          <FontAwesomeIcon icon="fa-solid fa-star" />
+          <FontAwesomeIcon icon="fa-solid fa-star" />
+          <span>(45)</span>{" "}
         </div>
-        <div>reviews : 4/5</div>
+        <span className="product-price">{price}€</span>
+      </div>
+      <div className="product-info2">
+        <button className="button">ADD TO CART</button>
       </div>
     </div>
   );
