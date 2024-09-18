@@ -32,8 +32,12 @@
       .product {
         color: black;
         font-size: 18px;
-        font-family: "Lilita One", system-ui;
+        font-family: "roboto", system-ui;
+          // font-family: "Indie Flower", system-ui;
+
         margin: 5px 0;
+        // -webkit-text-stroke-color: white;
+        // -webkit-text-stroke-width: 1px;
         &:hover {
           color: green;
         }

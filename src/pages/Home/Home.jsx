@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useSelector,  } from "react-redux";
+import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Banner from "/image_products/bg_banners/bannerHeroSeed.png";
 import Product from "../../components/Product/Product";
 import Logo1 from "/public/image_products/icons/heroseed.png";
 import Banners from "../../components/Banner/Banner";
+import Product2 from "../../components/Product/Product2";
 import {
   soilsIntroFr,
   seedsIntroFr,
@@ -134,16 +136,16 @@ function Home() {
           <>
             {products.map((products) => (
               <>
-                <Product
-                  id={products.id}
-                  category={products.category}
-                  name={products.name}
-                  soldBy={products.soldBy}
-                  price={products.price}
-                  quantity={products.quantity}
-                  description={products.description}
-                  img={products.img}
+                <Product2
+                  productsName={products.name}
+                  productsCategory={products.category}
+                  productsPrice={products.price}
+                  productsDescription={products.description}
+                  productsQuantity={products.quantity}
+                  productsImg={products.img}
+                  productSoldBy={products.soldBy}
                   checkQuantity={checkQuantity}
+
                 />
               </>
             ))}

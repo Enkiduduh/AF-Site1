@@ -723,7 +723,7 @@
 .nav-button .nav-dropdown .nav-products-container .product {
   color: black;
   font-size: 18px;
-  font-family: "Lilita One", system-ui;
+  font-family: "roboto", system-ui;
   margin: 5px 0;
 }
 .nav-button .nav-dropdown .nav-products-container .product:hover {
@@ -734,6 +734,90 @@
 }
 .nav-button .displayOff {
   display: none;
+}
+
+.product-Test {
+  background-color: white;
+  border: 3px solid whitesmoke;
+  color: black;
+  width: 470px;
+  font-family: "roboto", system-ui;
+}
+.product-Test .product-up {
+  border-bottom: 1px solid rgba(82, 82, 82, 0.4);
+  padding: 10px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.product-Test .product-down {
+  display: flex;
+  align-items: center;
+}
+.product-Test .product-down .product-img {
+  padding: 30px 10px;
+  border-right: 1px solid rgba(82, 82, 82, 0.4);
+}
+.product-Test .product-down .product-img img {
+  width: 130px;
+  height: 130px;
+}
+.product-Test .product-down .product-img .product-gallery {
+  display: flex;
+  padding: 30px 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-Test .product-down .product-infos {
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: whitesmoke;
+}
+.product-Test .product-down .product-infos .name {
+  font-size: 28px;
+  font-weight: thin;
+}
+.product-Test .product-down .product-infos .category {
+  font-size: 16px;
+  font-weight: thin;
+  color: rgb(100, 100, 100);
+}
+.product-Test .product-down .product-infos .price {
+  font-size: 24px;
+  color: rgb(100, 100, 100);
+  margin: 10px 0;
+}
+.product-Test .product-down .product-infos .description {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+.product-Test .product-down .product-infos .quantity {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgb(100, 100, 100);
+}
+.product-Test .product-down .product-infos .low-quantity {
+  color: red;
+  font-weight: 600;
+}
+.product-Test .product-down .product-infos .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.product-Test .product-down .product-infos .buttons .button {
+  padding: 8px 15px;
+  border-radius: 2px;
+  border: 1px solid black;
+  background-color: white;
+}
+.product-Test .product-down .product-infos .buttons .button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }
 
 * {
